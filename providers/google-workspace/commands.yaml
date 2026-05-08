@@ -1,0 +1,12 @@
+# Google Workspace provider (community contribution welcome)
+#
+# If you use Google Calendar and Gmail, you can configure commands here
+# that output readable text. Examples using gcalcli and similar tools:
+
+calendar:
+  command: "gcalcli agenda --nocolor --nodeclined $(date '+%Y-%m-%d') $(date '+%Y-%m-%d') --details length"
+  description: "Today's meetings via Google Calendar (gcalcli)"
+
+email:
+  command: "gmail-cli unread --max 20 --format text"
+  description: "Recent unread emails via Gmail CLI"

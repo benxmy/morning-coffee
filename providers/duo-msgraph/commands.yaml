@@ -1,0 +1,7 @@
+calendar:
+  command: "~/.config/claude-graph/bin/msgraph calendar 1"
+  description: "Today's meetings via Microsoft Graph (Duo plugin)"
+
+email:
+  command: "~/.config/claude-graph/bin/msgraph email recent 2 --unread --max 20"
+  description: "Unread emails from last 48 hours via Microsoft Graph (Duo plugin)"
