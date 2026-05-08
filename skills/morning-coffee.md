@@ -3,19 +3,27 @@ name: morning-coffee
 description: Daily focus picker. Reads your workboard, pulls today's calendar and recent emails, helps you pick 2-3 things to focus on today, flags stalled work, and protects time for deep work.
 user-invocable: true
 allowed-tools:
-  - Read(~/.claude/projects/memory/workboard.md)
-  - Read(~/.claude/projects/memory/MEMORY.md)
-  - Read(~/.claude/projects/memory/*.md)
-  - Edit(~/.claude/projects/memory/workboard.md)
-  - Edit(~/.claude/projects/memory/*.md)
-  - Write(~/.claude/projects/memory/daily/*.md)
+  - Read(~/.claude/projects/*/memory/workboard.md)
+  - Read(~/.claude/projects/*/memory/MEMORY.md)
+  - Read(~/.claude/projects/*/memory/*.md)
+  - Read(~/.config/morning-coffee/*)
+  - Edit(~/.claude/projects/*/memory/workboard.md)
+  - Edit(~/.claude/projects/*/memory/*.md)
+  - Write(~/.claude/projects/*/memory/daily/*.md)
   - Bash(date *)
-  - Bash(cat ~/.config/morning-coffee/providers.yaml)
+  - Bash(cat ~/.config/morning-coffee/*)
+  - Bash(~/.config/claude-graph/bin/msgraph *)
+  - Bash(gcalcli *)
+  - Bash(gmail-cli *)
 ---
 
 # /morning-coffee — Daily Focus Picker
 
 Arguments passed: `$ARGUMENTS`
+
+## Path Resolution
+
+Your memory files live at `~/.claude/projects/<project-slug>/memory/` where `<project-slug>` is derived from your home directory (e.g., `-Users-jane` on macOS, `-home-jane` on Linux). The setup script creates these directories automatically. Throughout this skill, paths reference this location — Claude Code resolves the correct project slug at runtime.
 
 ## Provider Setup
 
@@ -33,7 +41,7 @@ triage:
 
 ## Steps
 
-1. **Read the workboard** at `~/.claude/projects/memory/workboard.md`.
+1. **Read the workboard** at `~/.claude/projects/<project-slug>/memory/workboard.md`.
    Also read MEMORY.md for any specific reminders due today.
 
 2. **Get today's date and pull external context** — run all available providers in parallel:
@@ -119,7 +127,7 @@ triage:
 9. **Update the workboard** — set `Last reviewed: YYYY-MM-DD` at the top.
 
 10. **Save the plan** — once focus items are confirmed, write them to
-   `~/.claude/projects/memory/daily/YYYY-MM-DD.md` (using today's date).
+   `~/.claude/projects/<project-slug>/memory/daily/YYYY-MM-DD.md` (using today's date).
    Format:
    ```
    # Today's Plan — YYYY-MM-DD (Day)

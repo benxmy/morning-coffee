@@ -172,7 +172,7 @@ If you haven't set up your workboard yet:
 Or copy the template and fill it in manually:
 
 ```bash
-cp templates/workboard-example.md ~/.claude/projects/memory/workboard.md
+cp templates/workboard-example.md ~/.claude/projects/-Users-$(whoami)/memory/workboard.md
 # Edit to match your actual projects
 ```
 
@@ -219,11 +219,12 @@ After full setup, your filesystem looks like:
 │   ├── wrap-up.md
 │   └── workboard-init.md (optional, can remove after use)
 ├── projects/
-│   └── memory/
-│       ├── workboard.md
-│       ├── MEMORY.md
-│       └── daily/
-│           └── YYYY-MM-DD.md (created daily)
+│   └── -Users-<username>/       ← derived from your $HOME path
+│       └── memory/
+│           ├── workboard.md
+│           ├── MEMORY.md
+│           └── daily/
+│               └── YYYY-MM-DD.md (created daily)
 └── settings.json (SessionStart hook)
 
 ~/.config/
@@ -249,4 +250,4 @@ After full setup, your filesystem looks like:
 
 **"No plan set for today"**: You need to run `/morning-coffee` first — it creates the daily plan file that `/today` reads.
 
-**Workboard not found**: Ensure `~/.claude/projects/memory/workboard.md` exists. Run `/workboard-init` or copy a template.
+**Workboard not found**: Ensure your workboard exists at `~/.claude/projects/-Users-<username>/memory/workboard.md`. Run `/workboard-init` or copy a template. The setup script creates this path automatically.

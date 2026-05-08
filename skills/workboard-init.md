@@ -3,7 +3,7 @@ name: workboard-init
 description: One-time bootstrapping skill. Interviews you about your active projects and generates a populated workboard.
 user-invocable: true
 allowed-tools:
-  - Write(~/.claude/projects/memory/workboard.md)
+  - Write(~/.claude/projects/*/memory/workboard.md)
   - Bash(date *)
 ---
 
@@ -38,7 +38,7 @@ This is a one-time setup skill to create your initial workboard. After running t
 5. **Ask about dropped work** (optional):
    > "Anything you've decided to stop doing entirely? Sometimes it helps to record these so they don't creep back in."
 
-6. **Generate the workboard.** Write to `~/.claude/projects/memory/workboard.md` using this format:
+6. **Generate the workboard.** Write to `~/.claude/projects/<project-slug>/memory/workboard.md` using this format:
 
    ```markdown
    # Workboard

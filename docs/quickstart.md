@@ -26,7 +26,7 @@ If you chose the guided option:
 
 This interviews you about your active projects and generates your workboard. Takes about 5 minutes.
 
-If you chose the template, edit `~/.claude/projects/memory/workboard.md` and add your projects following the format.
+If you chose the template, edit the `workboard.md` file the setup script created (the path is printed during setup — it looks like `~/.claude/projects/-Users-<you>/memory/workboard.md`) and add your projects following the format.
 
 ## 3. Run Your First Morning Coffee
 
@@ -34,6 +34,10 @@ If you chose the template, edit `~/.claude/projects/memory/workboard.md` and add
 # In Claude Code:
 /morning-coffee
 ```
+
+On the first run, Claude Code will ask you to approve some tool permissions (reading your workboard, running date commands, etc.). This is normal — the skill declares what it needs in its `allowed-tools` header, and Claude Code confirms with you before granting access.
+
+If you configured a calendar/email provider, you'll also be prompted to approve running those commands (e.g., `msgraph calendar 1`). Once approved, these permissions persist for the session.
 
 It will:
 - Read your workboard

@@ -6,8 +6,13 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COMMANDS_DIR="$HOME/.claude/commands"
-MEMORY_DIR="$HOME/.claude/projects/memory"
 CONFIG_DIR="$HOME/.config/morning-coffee"
+
+# Derive Claude Code project memory path from $HOME
+# Claude Code uses the working directory path with slashes replaced by dashes
+# For ~/ (home directory), it's: -Users-<username> (macOS) or -home-<username> (Linux)
+HOME_PATH_SLUG=$(echo "$HOME" | sed 's|^/||; s|/|-|g')
+MEMORY_DIR="$HOME/.claude/projects/-${HOME_PATH_SLUG}/memory"
 
 echo "========================================"
 echo "  Morning Coffee — Setup"
@@ -129,7 +134,6 @@ if [[ "$triage_choice" =~ ^[Yy] ]]; then
     echo ""
     echo "  1. Clone the reference implementation:"
     echo "     git clone https://github.com/benxmy/webex-agent.git"
-    echo "     (Update URL when published)"
     echo ""
     echo "  2. Configure it to run before your morning planning time"
     echo ""

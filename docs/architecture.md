@@ -133,6 +133,17 @@ The skill reads providers.yaml. To add a new source type:
 2. Modify the morning-coffee skill to check for and use the new key
 3. The graceful-skip pattern means old configs still work
 
+## Permissions & Allowed Tools
+
+Claude Code skills declare an `allowed-tools` header that lists what the skill is permitted to do. Morning-coffee's permissions include:
+
+- **File access** (`Read`, `Edit`, `Write`) using wildcard paths like `~/.claude/projects/*/memory/*.md` — the `*` matches your specific project slug so the skill works regardless of username
+- **Shell commands** (`Bash`) for `date`, reading the providers config, and running provider commands (e.g., `msgraph`, `gcalcli`)
+
+**Why provider commands are pre-declared:** The skill includes `Bash(~/.config/claude-graph/bin/msgraph *)` and `Bash(gcalcli *)` in its allowed-tools so that Claude Code can run provider commands without prompting you every time. If you use a custom provider command not listed here, Claude Code will ask you to approve it on first use — you can then add it to the skill's `allowed-tools` header for future sessions.
+
+**Project memory path:** Claude Code derives your project memory path from your home directory. On macOS with user `jane`, it's `~/.claude/projects/-Users-jane/memory/`. The setup script detects this automatically. The skills use `*/memory/` wildcards so they work for any user.
+
 ## Why Not a Plugin?
 
 This is distributed as skills + config rather than a Claude Code plugin because:
