@@ -88,7 +88,7 @@ Edit `preferences.md` to set:
 
 ### Schedule with LaunchD (macOS)
 
-Create `~/Library/LaunchAgents/com.morning-coffee.triage.plist`:
+Create `~/Library/LaunchAgents/com.morning-coffee.triage.plist` (replace `YOUR_USERNAME` with your macOS username):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
