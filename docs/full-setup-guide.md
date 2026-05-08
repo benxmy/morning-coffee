@@ -13,7 +13,7 @@ This guide replicates the original author's complete daily workflow: Microsoft G
 ## Step 1: Base Installation
 
 ```bash
-git clone https://github.com/your-org/morning-coffee.git
+git clone https://github.com/benxmy/morning-coffee.git
 cd morning-coffee
 ./setup.sh
 ```
@@ -56,7 +56,7 @@ Both should return readable text output.
 
 ```bash
 cd ~/Projects
-git clone https://github.com/your-org/webex-triage-agent.git
+git clone https://github.com/benxmy/webex-agent.git
 cd webex-triage-agent
 ```
 

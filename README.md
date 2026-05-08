@@ -35,7 +35,7 @@ Morning                      During the day              End of day
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-org/morning-coffee.git
+git clone https://github.com/benxmy/morning-coffee.git
 cd morning-coffee
 ./setup.sh
 ```

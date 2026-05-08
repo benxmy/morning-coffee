@@ -5,7 +5,7 @@ Get morning-coffee running in 5 minutes.
 ## 1. Clone and Install
 
 ```bash
-git clone https://github.com/your-org/morning-coffee.git
+git clone https://github.com/benxmy/morning-coffee.git
 cd morning-coffee
 ./setup.sh
 ```

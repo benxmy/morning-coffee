@@ -128,7 +128,7 @@ if [[ "$triage_choice" =~ ^[Yy] ]]; then
     echo "  To set up message triage:"
     echo ""
     echo "  1. Clone the reference implementation:"
-    echo "     git clone https://github.com/your-org/webex-triage-agent"
+    echo "     git clone https://github.com/benxmy/webex-agent.git"
     echo "     (Update URL when published)"
     echo ""
     echo "  2. Configure it to run before your morning planning time"

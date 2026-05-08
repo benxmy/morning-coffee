@@ -30,7 +30,7 @@ See [triage-format.md](./triage-format.md) for the full specification.
 ## Reference Implementation
 
 The reference implementation is a Python-based Webex triage agent:
-- **Repository**: [webex-triage-agent](https://github.com/your-org/webex-triage-agent) _(update with actual URL)_
+- **Repository**: [webex-agent](https://github.com/benxmy/webex-agent)
 - **Runtime**: Python 3.10+, runs via LaunchD (macOS) or cron (Linux)
 - **LLM**: Uses Claude (via Bedrock or direct API) for triage decisions
 - **Schedule**: 8:30 AM weekdays via LaunchD plist
